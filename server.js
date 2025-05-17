@@ -8,12 +8,12 @@ const PORT = process.env.PORT || 3000; // Render provides PORT via environment v
 const VIEW_FILE = path.join(__dirname, "views.json");
 
 // Root route
-app.get("/", (req, res) => {
-  res.send("Welcome to the Profile Views Server! Visit /badge.svg to see the view count badge.");
-});
+/*app.get("/", (req, res) => {
+  res.send("Welcome to the Profile Views Server! Visit {/badge.svg to see the view count badge.");
+});*/
 
 // Badge route
-app.get("/badge.svg", (req, res) => {
+app.get("/", (req, res) => {
   let data = { count: 0 };
 
   try {
