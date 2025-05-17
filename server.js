@@ -4,8 +4,13 @@ const path = require("path");
 
 const app = express(); // 🔥 Create Express app instance
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // Render provides PORT via environment variable
 const VIEW_FILE = path.join(__dirname, "views.json");
+
+// Root route
+app.get("/", (req, res) => {
+  res.send("Welcome to the Profile Views Server! Visit /badge.svg to see the view count badge.");
+});
 
 // Badge route
 app.get("/badge.svg", (req, res) => {
