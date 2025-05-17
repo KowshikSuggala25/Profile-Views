@@ -16,14 +16,15 @@ app.get("/badge.svg", (req, res) => {
       data = JSON.parse(fs.readFileSync(VIEW_FILE, "utf8"));
     }
 
+    // Ensure template literal is clean and properly formatted
     const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="150" height="20">
-        <rect width="150" height="20" fill="#0e75b6"/>
-        <text x="10" y="14" fill="white" font-size="12" font-family="Verdana">
-          👀 ${data.count} views
-        </text>
-      </svg>
-    `;
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="20">
+  <rect width="150" height="20" fill="#0e75b6"/>
+  <text x="10" y="14" fill="white" font-size="12" font-family="Verdana">
+    👀 ${data.count} views
+  </text>
+</svg>
+    `.trim(); // Trim to remove any leading/trailing whitespace
 
     res.setHeader("Content-Type", "image/svg+xml");
     res.send(svg);
@@ -33,8 +34,6 @@ app.get("/badge.svg", (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT```javascript
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
