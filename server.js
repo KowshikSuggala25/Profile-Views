@@ -28,3 +28,6 @@ app.get("/badge.svg", (req, res) => {
   res.setHeader("Content-Type", "image/svg+xml");
   res.send(svg);
 });
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+});
