@@ -16,6 +16,9 @@ app.get("/badge.svg", (req, res) => {
   }
 
   // Generate SVG dynamically
+app.get("/badge.svg", (req, res) => {
+  let data = JSON.parse(fs.readFileSync(VIEW_FILE, "utf8"));
+
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="150" height="20">
       <rect width="150" height="20" fill="#0e75b6"/>
